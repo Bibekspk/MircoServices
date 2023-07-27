@@ -17,7 +17,9 @@ app.use(json());
 app.use(
   cookieSession({
     signed: false, // not securing as it is for only first req because after that JWT is on the way to check it
-    secure: true, // accepts only https request
+    secure: process.env.NODE_ENV !== "test",
+    // accepts only https request if its true
+    //in test will be false which will accept any request
   })
 );
 

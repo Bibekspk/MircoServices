@@ -4,7 +4,7 @@ export abstract class CustomError extends Error {
   constructor(message: string) {
     super(message);
     Object.setPrototypeOf(this, CustomError.prototype);
-    console.log(message);
+    // console.log(message);
   }
   abstract seralizeError(): { message: string; field?: string }[];
 }
