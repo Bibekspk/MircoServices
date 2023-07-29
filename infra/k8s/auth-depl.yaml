@@ -15,6 +15,12 @@ spec:
       containers:
         - name: auth
           image: subashpoudel7/auth
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: jwt_key
 ---
 apiVersion: v1
 kind: Service
@@ -26,5 +32,5 @@ spec:
   ports:
     - name: auth
       protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: 4000
+      targetPort: 4000
