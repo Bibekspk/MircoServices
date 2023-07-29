@@ -1,5 +1,5 @@
 {
-  "name": "@sporganization/common",
+  "name": "@sporganization/commonauth",
   "version": "1.0.0",
   "description": "",
   "main": "./build/index.js",
