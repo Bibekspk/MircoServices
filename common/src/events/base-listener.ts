@@ -1,31 +1,5 @@
-import nats from "node-nats-streaming";
-import { randomBytes } from "crypto";
-import TicketCreatedListener from "./ticket-creater-listener";
-
-console.clear();
-
-const stan = nats.connect("ticketing", randomBytes(4).toString("hex"), {
-  url: "http://localhost:4222",
-});
-
-stan.on("connect", () => {
-  console.log("LISTENER ON");
-
-  stan.on("close", () => {
-    console.log("Listener closed");
-    process.exit();
-  });
-
-  //creating instance and passing the already made up stan  and listening to it
-  //this stan will be going to TicketCreatedListenr and then to Listener where actual use of stan is done
-  new TicketCreatedListener(stan).listen();
-});
-
-process.on("SIGINT", () => stan.close());
-process.on("SIGTERM", () => stan.close());
 import { Message, Stan } from "node-nats-streaming";
 import { Subjects } from "./subjects";
-
 interface Event {
   subject: Subjects;
   data: any;
