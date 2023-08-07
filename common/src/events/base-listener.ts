@@ -5,7 +5,7 @@ interface Event {
   data: any;
 }
 
-abstract class Listener<T extends Event> {
+export abstract class Listener<T extends Event> {
   private client: Stan;
   abstract subject: T["subject"];
   abstract queueGroupName: string;
@@ -54,5 +54,3 @@ abstract class Listener<T extends Event> {
       : JSON.parse(data.toString("utf8"));
   }
 }
-
-export default Listener;
