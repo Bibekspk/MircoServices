@@ -17,6 +17,20 @@ spec:
                 name: auth-srv
                 port:
                   number: 4000
+          - path: /api/tickets/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: tickets-srv
+                port:
+                  number: 4000
+          - path: /api/orders/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: orders-srv
+                port:
+                  number: 4000
           - path: /?(.*)
             pathType: Prefix
             backend:

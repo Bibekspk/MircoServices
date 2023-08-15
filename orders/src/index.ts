@@ -1,6 +1,8 @@
 import { app } from "./app";
-import "./db-connect";
+// import "./db-connect";
 import { natsWrapper } from "./nats-wrapper";
+import { TicketCreatedListener } from "./events/listeners/ticket-created-listener";
+import { TicketUpdatedListener } from "./events/listeners/ticket-updated-listener";
 
 const start = async () => {
   if (!process.env.NATS_CLIENT_ID) throw new Error("client id is not defined");
@@ -20,6 +22,9 @@ const start = async () => {
     });
     process.on("SIGINT", () => natsWrapper.client.close()); //signal interrupt
     process.on("SIGTERM", () => natsWrapper.client.close()); //signal terminate
+
+    new TicketCreatedListener(natsWrapper.client).listen();
+    new TicketUpdatedListener(natsWrapper.client).listen();
   } catch (err) {}
 
   app.listen(4000, () => {

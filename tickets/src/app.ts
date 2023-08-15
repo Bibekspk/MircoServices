@@ -2,12 +2,18 @@ import express, { NextFunction, Request, Response } from "express";
 import "express-async-errors";
 import { json } from "body-parser";
 
-import { errorHandlers } from "@sporganization/commonauth";
-import { NotFoundError } from "@sporganization/commonauth";
+import {
+  errorHandlers,
+  NotFoundError,
+  currentUser,
+} from "@sporganization/commonauth";
 import cookieSession from "cookie-session";
+import { createTicketRouter } from "./routes/new";
+import { showTicketRouter } from "./routes/show";
+import { IndexTicketRouter } from "./routes";
+import { UpdateTicketRouter } from "./routes/update";
 
 const app = express();
-
 //Telling express that it is behind the proxy
 //Since traffic is being proxied through ingress nginx
 //By default express doesnot allow/trust the proxy
@@ -22,6 +28,12 @@ app.use(
     secure: process.env.NODE_ENV !== "test", //must be on https connection
   })
 );
+console.log("shjsdhj");
+app.use(currentUser);
+app.use(IndexTicketRouter);
+app.use(createTicketRouter);
+app.use(showTicketRouter);
+app.use(UpdateTicketRouter);
 
 // app.use("*", () => {
 //   throw new NotFoundError();
