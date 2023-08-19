@@ -19,3 +19,4 @@ export * from "./events/order-cancelled-event";
 export * from "./events/order-created-event";
 
 export * from "./events/types/order-types";
+export * from "./events/expiration-complete-event";
