@@ -32,7 +32,7 @@ interface Event {
 }
 
 abstract class Listener<T extends Event> {
-  private client: Stan;
+  protected client: Stan;
   abstract subject: T["subject"];
   abstract queueGroupName: string;
   abstract onMessage(data: T["data"], msg: Message): void;

@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payments-depl
+  name: expiration-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: payments
+      app: expiration
   template:
     metadata:
       labels:
-        app: payments
+        app: expiration
     spec:
       containers:
-        - name: payments
-          image: subashpoudel7/payments
+        - name: expiration
+          image: subashpoudel7/expiration
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
@@ -24,23 +24,19 @@ spec:
               value: "http://nats-srv:4222"
             - name: NATS_CLUSTER_ID
               value: ticketing
-            - name: MONGO_URI
-              value: "mongodb://payments-mongo-srv:27017/payments"
-            - name: JWT_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: jwt-secret
-                  key: jwt_key
+            - name: REDIS_HOST
+              value: expiration-redis-srv
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: payments-srv
+  name: expiration-srv
 spec:
   selector:
-    app: payments
+    app: expiration
   ports:
-    - name: payments
+    - name: expiration
       protocol: TCP
       port: 4000
       targetPort: 4000

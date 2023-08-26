@@ -1,4 +1,6 @@
 import { natsWrapper } from "./nats-wrapper";
+import { OrderCreatedListener } from "./events/listeners/order-created-listener";
+
 const start = async () => {
   if (!process.env.NATS_CLIENT_ID) throw new Error("client id is not defined");
   if (!process.env.NATS_URL) throw new Error("nats uri is not defined");
@@ -17,6 +19,7 @@ const start = async () => {
     });
     process.on("SIGINT", () => natsWrapper.client.close()); //signal interrupt
     process.on("SIGTERM", () => natsWrapper.client.close()); //signal terminate
+    new OrderCreatedListener(natsWrapper.client).listen();
   } catch (err) {}
 };
 

@@ -27,7 +27,8 @@ router.post(
   ],
   validateRequest,
   async (req: Request, res: Response) => {
-    const EXPIRATION_ORDER_TIME = 15 * 60;
+    console.log("req is", req.body);
+    const EXPIRATION_ORDER_TIME = 1 * 60;
     const { ticketId } = req.body;
 
     //Find the ticket the user is trying to order in the db
