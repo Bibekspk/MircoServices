@@ -8,7 +8,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: subashpoudel7/auth
+    - image: bibeksp7/auth
       context: auth
       docker:
         dockerfile: Dockerfile
@@ -16,7 +16,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: subashpoudel7/client
+    - image: bibeksp7/client
       context: client
       docker:
         dockerfile: Dockerfile
@@ -24,7 +24,7 @@ build:
         manual:
           - src: "**/*.js"
             dest: .
-    - image: subashpoudel7/tickets
+    - image: bibeksp7/tickets
       context: tickets
       docker:
         dockerfile: Dockerfile
@@ -32,7 +32,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: subashpoudel7/orders
+    - image: bibeksp7/orders
       context: orders
       docker:
         dockerfile: Dockerfile
@@ -40,7 +40,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: subashpoudel7/expiration
+    - image: bibeksp7/expiration
       context: expiration
       docker:
         dockerfile: Dockerfile
@@ -48,7 +48,7 @@ build:
         manual:
           - src: "src/**/*.ts"
             dest: .
-    - image: subashpoudel7/payments
+    - image: bibeksp7/payments
       context: payments
       docker:
         dockerfile: Dockerfile

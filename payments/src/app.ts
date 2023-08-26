@@ -6,7 +6,7 @@ import {
   errorHandlers,
   NotFoundError,
   currentUser,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import cookieSession from "cookie-session";
 
 const app = express();

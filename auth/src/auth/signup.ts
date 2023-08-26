@@ -2,8 +2,8 @@ import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { body } from "express-validator";
 
-import { validateRequest } from "@sporganization/commonauth";
-import { BadRequestError } from "@sporganization/commonauth";
+import { validateRequest } from "@bibekorg/common";
+import { BadRequestError } from "@bibekorg/common";
 import { User } from "../models/user";
 const router = express.Router();
 

@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Ticket } from "../../../models/tickets";
 import { natsWrapper } from "../../../nats-wrapper";
 import { OrderCancelledListener } from "../order-cancelled.listener";
-import { OrderCancelledEvent } from "@sporganization/commonauth";
+import { OrderCancelledEvent } from "@bibekorg/common";
 import { Message } from "node-nats-streaming";
 const setup = async () => {
   const listener = new OrderCancelledListener(natsWrapper.client);

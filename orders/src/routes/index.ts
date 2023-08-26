@@ -1,5 +1,5 @@
 import express, { Response, Request } from "express";
-import { requireAuth } from "@sporganization/commonauth";
+import { requireAuth } from "@bibekorg/common";
 import { Order } from "../models/order";
 
 const router = express.Router();

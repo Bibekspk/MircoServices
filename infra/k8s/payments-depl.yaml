@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: subashpoudel7/payments
+          image: bibeksp7/payments
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

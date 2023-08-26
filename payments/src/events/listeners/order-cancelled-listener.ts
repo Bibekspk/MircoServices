@@ -3,7 +3,7 @@ import {
   OrderCancelledEvent,
   OrderStatus,
   Subjects,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { queueGroupName } from "./queue-group-name";
 import { Message } from "node-nats-streaming";
 import { Order } from "../../models/order";

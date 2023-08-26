@@ -5,7 +5,7 @@ import {
   OrderStatus,
   requireAuth,
   validateRequest,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { body } from "express-validator";
 import mongoose from "mongoose";
 import { Ticket } from "../models/ticket";

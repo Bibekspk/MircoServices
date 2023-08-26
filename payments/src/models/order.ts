@@ -1,4 +1,4 @@
-import { OrderStatus } from "@sporganization/commonauth";
+import { OrderStatus } from "@bibekorg/common";
 import mongoose from "mongoose";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";
 

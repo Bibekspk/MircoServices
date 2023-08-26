@@ -4,7 +4,7 @@ import {
   ExpirationCompleteEvent,
   NotFoundError,
   OrderStatus,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { queueGroupName } from "./queuegroupname";
 import { Message } from "node-nats-streaming";
 import { Order } from "../../models/order";

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: orders
-          image: subashpoudel7/orders
+          image: bibeksp7/orders
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

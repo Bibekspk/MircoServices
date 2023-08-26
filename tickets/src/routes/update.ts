@@ -6,7 +6,7 @@ import {
   NotFoundError,
   requireAuth,
   BadRequestError,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { Ticket } from "../models/tickets";
 import { TicketUpdatedPublisher } from "../events/publishers/ticket-updated-publisher";
 import { natsWrapper } from "../nats-wrapper";

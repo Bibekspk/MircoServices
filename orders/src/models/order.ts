@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { OrderStatus } from "@sporganization/commonauth";
+import { OrderStatus } from "@bibekorg/common";
 export { OrderStatus };
 import { TicketDoc } from "./ticket";
 import { updateIfCurrentPlugin } from "mongoose-update-if-current";

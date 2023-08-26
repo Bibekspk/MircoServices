@@ -5,8 +5,8 @@ import { currentUserRouter } from "./auth/current-user";
 import { signInRouter } from "./auth/signin";
 import { signUpRouter } from "./auth/signup";
 import { signoutRouter } from "./auth/signout";
-import { errorHandlers } from "@sporganization/commonauth";
-import { NotFoundError } from "@sporganization/commonauth";
+import { errorHandlers } from "@bibekorg/common";
+import { NotFoundError } from "@bibekorg/common";
 import cookieSession from "cookie-session";
 
 const app = express();

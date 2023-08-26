@@ -2,8 +2,8 @@ import express, { Request, Response } from "express";
 import { body } from "express-validator";
 
 import { User } from "../models/user";
-import { validateRequest } from "@sporganization/commonauth";
-import { BadRequestError } from "@sporganization/commonauth";
+import { validateRequest } from "@bibekorg/common";
+import { BadRequestError } from "@bibekorg/common";
 import { Password } from "../services/password";
 import jwt from "jsonwebtoken";
 

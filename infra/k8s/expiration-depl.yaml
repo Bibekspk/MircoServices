@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: expiration
-          image: subashpoudel7/expiration
+          image: bibeksp7/expiration
           env:
             - name: NATS_CLIENT_ID
               valueFrom:

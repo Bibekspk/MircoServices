@@ -7,7 +7,7 @@ import {
   NotFoundError,
   NotAuthorizedError,
   OrderStatus,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { Order } from "../models/order";
 
 const router = express.Router();

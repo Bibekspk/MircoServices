@@ -6,7 +6,7 @@ import {
   errorHandlers,
   NotFoundError,
   currentUser,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import cookieSession from "cookie-session";
 import { createTicketRouter } from "./routes/new";
 import { showTicketRouter } from "./routes/show";

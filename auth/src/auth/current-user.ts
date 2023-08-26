@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { currentUser } from "@sporganization/commonauth";
+import { currentUser } from "@bibekorg/common";
 const router = express.Router();
 
 router.get(

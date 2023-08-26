@@ -1,5 +1,5 @@
 import express, { NextFunction, Request, Response } from "express";
-import { requireAuth, validateRequest } from "@sporganization/commonauth";
+import { requireAuth, validateRequest } from "@bibekorg/common";
 import { body } from "express-validator";
 import { Ticket } from "../models/tickets";
 import { TicketCreatedPublisher } from "../events/publishers/ticket-created.publisher";

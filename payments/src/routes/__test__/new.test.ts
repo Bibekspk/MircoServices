@@ -2,7 +2,7 @@ import request from "supertest";
 import { app } from "../../app";
 import mongoose from "mongoose";
 import { Order } from "../../models/order";
-import { OrderStatus } from "@sporganization/commonauth";
+import { OrderStatus } from "@bibekorg/common";
 
 it("returns a 404 while purchansing order that doesnt exists", async () => {
   await request(app)

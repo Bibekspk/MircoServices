@@ -3,7 +3,7 @@ import {
   Subjects,
   Listener,
   TicketUpdatedEvent,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { Ticket } from "../../models/ticket";
 import { queueGroupName } from "./queuegroupname";
 

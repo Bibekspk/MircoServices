@@ -7,7 +7,7 @@ import { Message } from "node-nats-streaming";
 import {
   OrderStatus,
   ExpirationCompleteEvent,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 
 const setup = async () => {
   const listener = new ExpirationCompleteListener(natsWrapper.client);

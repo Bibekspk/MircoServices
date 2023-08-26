@@ -3,7 +3,7 @@ import { Message } from "node-nats-streaming";
 import { Ticket } from "../../../models/ticket";
 import { natsWrapper } from "../../../nats-wrapper";
 import { TicketUpdatedListener } from "../ticket-updated-listener";
-import { TicketUpdatedEvent } from "@sporganization/commonauth";
+import { TicketUpdatedEvent } from "@bibekorg/common";
 
 const setup = async () => {
   //create a listner

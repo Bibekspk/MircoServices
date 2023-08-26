@@ -1,5 +1,5 @@
 import { OrderCreatedListener } from "../order-created.listener";
-import { OrderCreatedEvent, OrderStatus } from "@sporganization/commonauth";
+import { OrderCreatedEvent, OrderStatus } from "@bibekorg/common";
 import { natsWrapper } from "../../../nats-wrapper";
 import { Ticket } from "../../../models/tickets";
 import { Message } from "node-nats-streaming";

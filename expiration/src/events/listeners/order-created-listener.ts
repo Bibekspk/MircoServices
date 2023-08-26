@@ -2,7 +2,7 @@ import {
   Listener,
   OrderCreatedEvent,
   Subjects,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { queuegroupname } from "./queue-group-name";
 import { Message } from "node-nats-streaming";
 import { expirationQueue } from "../../queues/expiration-queue";

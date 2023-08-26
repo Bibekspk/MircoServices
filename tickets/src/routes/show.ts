@@ -3,7 +3,7 @@ import {
   NotFoundError,
   requireAuth,
   validateRequest,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 import { param } from "express-validator";
 import { Ticket } from "../models/tickets";
 const router = express.Router();

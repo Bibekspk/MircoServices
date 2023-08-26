@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { natsWrapper } from "../../../nats-wrapper";
-import { OrderCancelledEvent, OrderStatus } from "@sporganization/commonauth";
+import { OrderCancelledEvent, OrderStatus } from "@bibekorg/common";
 import { Message } from "node-nats-streaming";
 import { Order } from "../../../models/order";
 import { OrderCancelledListener } from "../order-cancelled-listener";

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { natsWrapper } from "../../../nats-wrapper";
 import { OrderCreatedListener } from "../order-created-listener";
-import { OrderCreatedEvent, OrderStatus } from "@sporganization/commonauth";
+import { OrderCreatedEvent, OrderStatus } from "@bibekorg/common";
 import { Message } from "node-nats-streaming";
 import { Order } from "../../../models/order";
 

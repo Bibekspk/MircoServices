@@ -4,7 +4,7 @@ import {
   NotAuthorizedError,
   NotFoundError,
   requireAuth,
-} from "@sporganization/commonauth";
+} from "@bibekorg/common";
 
 const router = express.Router();
 
