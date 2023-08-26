@@ -1,13 +1,6 @@
-import express from "express";
-import { json } from "body-parser";
+import { app } from "./app";
+import "./db-connect";
 
-const app = express();
-app.use(json());
-
-app.get("api/users/currentuser", (req, res) => {
-  res.send("hi, there");
-});
-
-app.listen(3000, () => {
-  console.log("listening on port 300");
+app.listen(4000, () => {
+  console.log("listening on port 3000");
 });
