@@ -18,6 +18,9 @@ app.set("trust proxy", true);
 
 app.use(json());
 
+//this helps to maintain a session of cookies
+//this will help to attach cokkie in res for sending it to the browser in set-Cookie
+// that cookie will be set in browser and used every time request is hit from there
 app.use(
   cookieSession({
     signed: false,
@@ -25,13 +28,19 @@ app.use(
   })
 );
 
+
 // app.use("*", () => {
 //   throw new NotFoundError();
 // }); /// this will work as long as the function is synchronous.
 //If we make a function asynchronous then it will be in pending state
 
+//this currentUser middleware extract jwt and set the decoded obj in req.user which
+// is checked by requireAuth middleware
+app.use(currentUser);
+
 app.use(createChargeRouter);
 app.use(errorHandlers);
+
 //which is why we should use next function
 app.use("*", async (req: Request, res: Response, next: NextFunction) => {
   throw new NotFoundError();

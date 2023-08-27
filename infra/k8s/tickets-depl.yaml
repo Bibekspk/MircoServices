@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payments-depl
+  name: tickets-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: payments
+      app: tickets
   template:
     metadata:
       labels:
-        app: payments
+        app: tickets
     spec:
       containers:
-        - name: payments
-          image: bibeksp7/payments
+        - name: tickets
+          image: bibeksp7/tickets
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
@@ -25,7 +25,7 @@ spec:
             - name: NATS_CLUSTER_ID
               value: ticketing
             - name: MONGO_URI
-              value: "mongodb://payments-mongo-srv:27017/payments"
+              value: "mongodb://tickets-mongo-srv:27017/tickets"
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
@@ -35,12 +35,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: payments-srv
+  name: tickets-srv
 spec:
   selector:
-    app: payments
+    app: tickets
   ports:
-    - name: payments
+    - name: tickets
       protocol: TCP
       port: 4000
       targetPort: 4000

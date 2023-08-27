@@ -748,10 +748,10 @@
   "resolved" "https://registry.npmjs.org/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz"
   "version" "0.2.3"
 
-"@bibekorg/common@^1.0.1":
-  "integrity" "sha512-iwl7zFUeN7javcVHoOBYpWqt5EX5eQgI6cNLdxniRLEhAywNvVYvLi6v3ZeKaLZ/KOTUPKe0APpi6ADQ+h3c6Q=="
-  "resolved" "https://registry.npmjs.org/@bibekorg/common/-/common-1.1.30.tgz"
-  "version" "1.1.30"
+"@bibekorg/common@^1.0.21":
+  "integrity" "sha512-vqcdteiCMsI2bBJAxIjAQiR5GJPkhmG/JR+YVL8nKOzEzkSF+ahxYqiEd3tDVQuwKRIlaBCtOPps9ApeskX+rQ=="
+  "resolved" "https://registry.npmjs.org/@bibekorg/common/-/common-1.0.21.tgz"
+  "version" "1.0.21"
   dependencies:
     "@types/cookie-session" "^2.0.44"
     "@types/express" "^4.17.17"

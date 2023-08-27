@@ -28,7 +28,6 @@ app.use(
     secure: process.env.NODE_ENV !== "test", //must be on https connection
   })
 );
-console.log("shjsdhj");
 app.use(currentUser);
 app.use(IndexTicketRouter);
 app.use(createTicketRouter);

@@ -8,21 +8,17 @@ import {
   NotAuthorizedError,
   OrderStatus,
 } from "@bibekorg/common";
+import { stripe } from "../stripe";
 import { Order } from "../models/order";
+import { Payment } from "../models/payment";
+import { PaymentCreatedPublisher } from "../events/publisher/payment-created-publisher";
+import { natsWrapper } from "../nats-wrapper";
 
 const router = express.Router();
 
 router.post(
   "/api/payments",
-  (req: any, res: any, next: any) => {
-    console.log("req is s", req.session);
-    next();
-  },
   requireAuth,
-  (req: any, res: any, next: any) => {
-    console.log("req is secondle", req.session);
-    next();
-  },
   [body("token").not().isEmpty(), body("orderId").not().isEmpty()],
   validateRequest,
   async (req: Request, res: Response) => {
@@ -36,10 +32,30 @@ router.post(
     }
 
     if (order.status === OrderStatus.Cancelled) {
-      throw new BadRequestError("Order already cancelled");
+      throw new BadRequestError("Cannot pay cancelled order");
     }
 
-    res.send({ success: true });
+    // creating a charge where source is the token recieved from FE
+    // it is preauth type token with user credit card info
+    const stripeCharge = await stripe.charges.create({
+      currency: 'usd',
+      amount: order.price * 100,
+      source: token
+    })
+    //will return id that can be used for future purpose
+
+    //storing payment info
+    const payment = Payment.build({ orderId, stripeId: stripeCharge.id })
+    await payment.save()
+
+    //publishing event after payment data is saved and it is successful
+    await new PaymentCreatedPublisher(natsWrapper.client).publish({
+      id: payment.id,
+      orderId: payment.orderId,
+      stripeId: payment.stripeId
+    })
+
+    res.status(201).send({ id: payment.id });
   }
 );
 
